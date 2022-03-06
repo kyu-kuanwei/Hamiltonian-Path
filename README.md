@@ -6,3 +6,7 @@ Given a 12 x 12 matrix, visit all the cells once without passing through the blo
 ```
 python3 main.py
 ```
+
+# Example
+
+![Alt Text](https://github.com/kyu-kuanwei/Hamiltonian-Path/example/sample1.gif)
