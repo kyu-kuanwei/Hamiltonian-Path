@@ -9,4 +9,4 @@ python3 main.py
 
 # Example
 
-![Alt Text](https://github.com/kyu-kuanwei/Hamiltonian-Path/example/sample1.gif)
+![Alt Text](https://github.com/kyu-kuanwei/Hamiltonian-Path/blob/main/example/sample1.gif)
