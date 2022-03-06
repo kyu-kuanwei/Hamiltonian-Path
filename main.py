@@ -27,7 +27,8 @@ class Algorithm:
             return True
 
         # Pruning
-        # Split cell into two part
+        # When the path faces the wall and if either right/left or up/down is able to go
+        # then the path is must wrong.
         if row == 0 or row == self._board_size - 1:
             if col + 1 < self._board_size and col - 1 >= 0:
                 if visited[row][col + 1] == 0 and visited[row][col - 1] == 0:
@@ -39,6 +40,10 @@ class Algorithm:
                     return False
 
         # TODO: buggy prunning
+        # Simliar prunning, but seems buggy.
+        # When the path faces the visited cell, and if either right/left or up/down is able to go
+        # then the path is must wrong.
+
         # if col - 1 >= 0 and visited[row][col - 1] == 1:
         #     if row + 1 < self._board_size and row - 1 >= 0 and visited[row + 1][col] == 0 and visited[row - 1][col] == 0:
         #         return False
@@ -58,8 +63,8 @@ class Algorithm:
         visited[row][col] = 1
         path.append(row * 10 + col)
         # Plot the grid
-        # plt.imshow(visited)
-        # plt.pause(0.0001)
+        plt.imshow(visited)
+        plt.pause(0.0001)
 
         if len(path) == self._total_move:
             self._result = path
@@ -86,6 +91,6 @@ def main():
     # board = Board(blocks, 10)
     print(Algorithm(board).result())
     # Enable plot in real time
-    # plt.show()
+    plt.show()
 
 main()
