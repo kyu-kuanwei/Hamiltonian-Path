@@ -17,18 +17,16 @@ class Algorithm:
         path = []
 
         self._DFS(visited, 0, 0, path)
-        plt.show()
 
     def _DFS(self, visited, row, col, path):
         if row < 0 or row >= self._board_size or col < 0 or col >= self._board_size or visited[row][col] != 0:
             return False
 
-        # a,b,c,d = True, True, True, True
-
         # Already success
         if self._status:
             return True
 
+        # Pruning
         # Split cell into two part
         if row == 0 or row == self._board_size - 1:
             if col + 1 < self._board_size and col - 1 >= 0:
@@ -40,6 +38,7 @@ class Algorithm:
                 if visited[row + 1][col] == 0 and visited[row - 1][col] == 0:
                     return False
 
+        # TODO: buggy prunning
         # if col - 1 >= 0 and visited[row][col - 1] == 1:
         #     if row + 1 < self._board_size and row - 1 >= 0 and visited[row + 1][col] == 0 and visited[row - 1][col] == 0:
         #         return False
@@ -86,4 +85,7 @@ def main():
     board = Board(blocks, 12)
     # board = Board(blocks, 10)
     print(Algorithm(board).result())
+    # Enable plot in real time
+    # plt.show()
+
 main()
